@@ -62,9 +62,10 @@
       <parent link="${parent}" />
       <child link="${prefix}wrist" />
       <xacro:insert_block name="origin" />
+      <!-- this is the wrist adduction -->
       <axis xyz="0 ${reflect} 0" />
-      <limit lower="${-30/180*M_PI}" upper="${10/180*M_PI}"
-      effort="10" velocity="2.0" />
+      <limit lower="${-60/180*M_PI}" upper="${60/180*M_PI}"
+      effort="10" velocity="20.0" />
       <dynamics damping="0.1" />
     </joint>
     <gazebo reference="${prefix}WRJ2">

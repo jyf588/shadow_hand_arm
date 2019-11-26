@@ -97,10 +97,11 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
     <joint name="${prefix}WRJ1" type="revolute">
       <parent link="${parent}" />
       <child link="${prefix}palm" />
-      <origin xyz="0 0 0.034" rpy="0 0 0" />
+      <origin xyz="0 0 0.03" rpy="0 0 0" />
       <axis xyz="1 0 0" />
-      <limit lower="${-40/180*M_PI}" upper="${28/180*M_PI}"
-      effort="30" velocity="2.0" />
+      <!-- this is the wrist flexion -->
+      <limit lower="${-90/180*M_PI}" upper="${90/180*M_PI}"
+      effort="30" velocity="20.0" />
       <dynamics damping="0.1" />
     </joint>
     <gazebo reference="${prefix}WRJ1">

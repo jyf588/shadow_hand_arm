@@ -2,7 +2,7 @@
 xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
 xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm.urdf.xacro" />
+  <!-- <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm.urdf.xacro" /> -->
   <xacro:include filename="$(find sr_description)/hand/xacro/wrist/wrist.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
@@ -25,14 +25,14 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- Wrist -->
     <xacro:if value="${muscle}">
       <xacro:wrist muscletrans="${muscletrans}" prefix="${prefix}"
-      reflect="${reflect}" parent="${prefix}forearm">
+      reflect="${reflect}" parent="${parent}">
         <origin xyz="0 0 0.4096" rpy="0 0 0" />
       </xacro:wrist>
     </xacro:if>
     <xacro:unless value="${muscle}">
       <xacro:wrist muscletrans="false" prefix="${prefix}"
       reflect="${reflect}" parent="${parent}">
-        <origin xyz="0 -0.010 0.0" rpy="0 0 0" />
+        <origin xyz="0 0.0 0.0" rpy="0 0 0" />
       </xacro:wrist>
     </xacro:unless>
     <!-- Palm -->
