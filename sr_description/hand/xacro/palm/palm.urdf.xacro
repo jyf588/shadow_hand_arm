@@ -14,7 +14,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- parent is the parent link for the joint -->
   <xacro:macro name="palm"
-  params="muscletrans prefix reflect parent">
+  params="muscletrans prefix reflect is_root:='false' parent">
     <link name="${prefix}palm">
       <inertial>
         <origin xyz="0 0 0.035" rpy="0 0 0" />
@@ -88,31 +88,31 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </geometry>
       </collision>
     </link>
-    <joint name="${prefix}ee_fixed_joint" type="fixed">
+    <!-- <joint name="${prefix}ee_fixed_joint" type="fixed">
       <parent link="${prefix}palm" />
       <child link = "${prefix}manipulator" />
       <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0" />
     </joint>
-    <link name="${prefix}manipulator" />
-    <joint name="${prefix}WRJ1" type="revolute">
-      <parent link="${parent}" />
-      <child link="${prefix}palm" />
-      <origin xyz="0 0 0.03" rpy="0 0 0" />
-      <axis xyz="1 0 0" />
-      <!-- this is the wrist flexion -->
-      <limit lower="${-90/180*M_PI}" upper="${90/180*M_PI}"
-      effort="30" velocity="20.0" />
-      <dynamics damping="0.1" />
-    </joint>
-    <gazebo reference="${prefix}WRJ1">
-      <provideFeedback>1</provideFeedback>
-      <implicitSpringDamper>1</implicitSpringDamper>
-    </gazebo>
+    <link name="${prefix}manipulator" /> -->
+    <xacro:unless value="${is_root}">
+      <joint name="${prefix}WRJ1" type="revolute">
+        <parent link="${parent}" />
+        <child link="${prefix}palm" />
+        <origin xyz="0 0 0.03" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <!-- this is the wrist flexion -->
+        <limit lower="${-90/180*M_PI}" upper="${90/180*M_PI}"
+        effort="30" velocity="20.0" />
+        <dynamics damping="0.1" />
+      </joint>
+      <gazebo reference="${prefix}WRJ1">
+        <provideFeedback>1</provideFeedback>
+        <implicitSpringDamper>1</implicitSpringDamper>
+      </gazebo>
+    </xacro:unless>
     <!--imu-->
     <!-- <xacro:imu prefix="${prefix}"/> -->
     <!-- extensions -->
-    <xacro:shadowhand_palm_transmission muscletrans="${muscletrans}"
-    prefix="${prefix}" />
     <xacro:shadowhand_palm_gazebo prefix="${prefix}" />
   </xacro:macro>
 </robot>

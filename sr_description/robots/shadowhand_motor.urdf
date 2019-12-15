@@ -30,8 +30,6 @@
       <robotSimType>sr_gazebo_sim/SrGazeboHWSim</robotSimType>
     </plugin>
   </gazebo>
-  <!-- hand with cylindrical base drifts in gazebo, attach it to the world -->
-
   <link name="rh_palm">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.035"/>
@@ -99,7 +97,6 @@
       </geometry>
     </collision>
   </link>
-
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <gazebo reference="rh_palm">
     <sensor name="rh_palm_contact" type="contact">
