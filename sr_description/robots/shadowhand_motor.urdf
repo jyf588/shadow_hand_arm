@@ -30,6 +30,13 @@
       <robotSimType>sr_gazebo_sim/SrGazeboHWSim</robotSimType>
     </plugin>
   </gazebo>
+  <link name="rh_palm_aux">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.003"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+  </link>
   <link name="rh_palm">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.035"/>
@@ -97,6 +104,11 @@
       </geometry>
     </collision>
   </link>
+  <joint name="rh_palm_aux_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0 0.0"/>
+    <parent link="rh_palm_aux"/>
+    <child link="rh_palm"/>
+  </joint>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <gazebo reference="rh_palm">
     <sensor name="rh_palm_contact" type="contact">
