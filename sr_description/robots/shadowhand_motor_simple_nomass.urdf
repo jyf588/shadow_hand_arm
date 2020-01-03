@@ -38,7 +38,7 @@
     <parent link="world_aux_x"/>
     <child link="world_aux_y"/>
     <axis xyz="1 0 0"/>
-    <limit effort="10000.0" lower="-1000" upper="1000" velocity="1000.0"/>
+    <limit effort="10000.0" lower="-0.1" upper="0.2" velocity="1000.0"/>
     <origin rpy="0 0 0" xyz="0.0 0 0.0"/>
   </joint>
 
@@ -53,7 +53,7 @@
     <parent link="world_aux_y"/>
     <child link="world_aux_z"/>
     <axis xyz="0 1 0"/>
-    <limit effort="10000.0" lower="-1000" upper="1000" velocity="1000.0"/>
+    <limit effort="10000.0" lower="-0.1" upper="0.1" velocity="1000.0"/>
     <origin rpy="0 0 0" xyz="0.0 0 0.0"/>
   </joint>
 
@@ -68,7 +68,7 @@
     <parent link="world_aux_z"/>
     <child link="world_aux_rx"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10000.0" lower="-1000" upper="1000" velocity="1000.0"/>
+    <limit effort="10000.0" lower="-0.1" upper="0.1" velocity="1000.0"/>
     <origin rpy="0 0 0" xyz="0.0 0 0.0"/>
   </joint>
 
@@ -84,7 +84,7 @@
     <child link="world_aux_ry"/>
     <!--TODO: reverse xyz to match euler bullet-->
     <axis xyz="0 0 1"/>
-    <limit effort="10000.0" lower="-1000" upper="1000" velocity="1000.0"/>
+    <limit effort="10000.0" lower="-0.7" upper="0.7" velocity="1000.0"/>
     <origin rpy="0 0 0" xyz="0.0 0 0.0"/>
   </joint>
 
@@ -99,7 +99,7 @@
     <parent link="world_aux_ry"/>
     <child link="world_aux_rz"/>
     <axis xyz="0 1 0"/>
-    <limit effort="10000.0" lower="-1000" upper="1000" velocity="1000.0"/>
+    <limit effort="10000.0" lower="-0.7" upper="0.7" velocity="1000.0"/>
     <origin rpy="0 0 0" xyz="0.0 0 0.0"/>
   </joint>
 
@@ -114,7 +114,7 @@
     <parent link="world_aux_rz"/>
     <child link="rh_palm_aux"/>
     <axis xyz="1 0 0"/>
-    <limit effort="10000.0" lower="-1000" upper="1000" velocity="1000.0"/>
+    <limit effort="10000.0" lower="-0.7" upper="0.7" velocity="1000.0"/>
     <origin rpy="0 0 0" xyz="0.0 0 0.0"/>
   </joint>
 
