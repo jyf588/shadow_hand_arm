@@ -38,7 +38,7 @@
     <parent link="world_aux_x"/>
     <child link="world_aux_y"/>
     <axis xyz="1 0 0"/>
-    <limit effort="10000.0" lower="-0.1" upper="0.2" velocity="1000.0"/>
+    <limit effort="10000.0" lower="-0.01" upper="0.35" velocity="1000.0"/>
     <origin rpy="0 0 0" xyz="0.0 0 0.0"/>
   </joint>
 
